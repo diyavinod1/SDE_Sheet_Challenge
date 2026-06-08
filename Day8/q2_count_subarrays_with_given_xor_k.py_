@@ -1,0 +1,20 @@
+n = int(input())
+arr = list(map(int, input().split()))
+k = int(input())
+
+xr = 0
+count = 0
+
+mpp = {0: 1}
+
+for num in arr:
+    xr ^= num
+
+    x = xr ^ k
+
+    if x in mpp:
+        count += mpp[x]
+
+    mpp[xr] = mpp.get(xr, 0) + 1
+
+print(count)
